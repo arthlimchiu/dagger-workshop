@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.arthlimchiu.daggerworkshop.R
-import com.arthlimchiu.daggerworkshop.appComponent
+import dagger.android.AndroidInjection
 import javax.inject.Inject
 
 class UserDetailsActivity : AppCompatActivity() {
@@ -20,13 +20,9 @@ class UserDetailsActivity : AppCompatActivity() {
     private lateinit var numOfRepos: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_details)
-
-        appComponent
-            .userDetailsSubcomponent()
-            .build()
-            .inject(this)
 
         fullName = findViewById(R.id.full_name)
         numOfRepos = findViewById(R.id.num_of_repos)

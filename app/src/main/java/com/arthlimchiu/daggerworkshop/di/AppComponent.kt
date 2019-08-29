@@ -1,19 +1,19 @@
 package com.arthlimchiu.daggerworkshop.di
 
-import com.arthlimchiu.daggerworkshop.repos.ReposSubcomponent
-import com.arthlimchiu.daggerworkshop.userdetails.UserDetailsSubcomponent
+import com.arthlimchiu.daggerworkshop.App
 import dagger.Component
+import dagger.android.AndroidInjectionModule
 import javax.inject.Singleton
 
 @Singleton
 @Component(
     modules = [
-        AppModule::class
+        AndroidInjectionModule::class,
+        AppModule::class,
+        ActivityBuilder::class
     ]
 )
 interface AppComponent {
 
-    fun userDetailsSubcomponent(): UserDetailsSubcomponent.Builder
-
-    fun reposSubcomponent(): ReposSubcomponent.Builder
+    fun inject(app: App)
 }
