@@ -1,13 +1,18 @@
 package com.arthlimchiu.daggerworkshop.di
 
 import com.arthlimchiu.daggerworkshop.Api
+import com.arthlimchiu.daggerworkshop.repos.ReposSubcomponent
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
-@Module
+@Module(
+    subcomponents = [
+        ReposSubcomponent::class
+    ]
+)
 class AppModule {
 
     @Provides

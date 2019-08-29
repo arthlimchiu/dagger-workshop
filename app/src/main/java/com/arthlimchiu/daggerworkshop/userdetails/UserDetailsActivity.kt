@@ -20,9 +20,13 @@ class UserDetailsActivity : AppCompatActivity() {
     private lateinit var numOfRepos: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        appComponent.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_details)
+
+        appComponent
+            .userDetailsSubcomponent()
+            .build()
+            .inject(this)
 
         fullName = findViewById(R.id.full_name)
         numOfRepos = findViewById(R.id.num_of_repos)
