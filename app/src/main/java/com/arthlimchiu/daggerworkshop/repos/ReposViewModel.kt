@@ -4,9 +4,8 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import javax.inject.Inject
 
-class ReposViewModel @Inject constructor(private val reposRepository: ReposRepository) : ViewModel() {
+class ReposViewModel(private val reposRepository: ReposRepository) : ViewModel() {
 
     private val _repos = MutableLiveData<List<Repo>>()
 
