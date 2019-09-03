@@ -2,6 +2,7 @@ package com.arthlimchiu.daggerworkshop.di
 
 import com.arthlimchiu.daggerworkshop.Api
 import com.arthlimchiu.daggerworkshop.repos.ReposSubcomponent
+import com.arthlimchiu.daggerworkshop.userdetails.UserDetailsSubcomponent
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
@@ -10,7 +11,8 @@ import javax.inject.Singleton
 
 @Module(
     subcomponents = [
-        ReposSubcomponent::class
+        ReposSubcomponent::class,
+        UserDetailsSubcomponent::class
     ]
 )
 class AppModule {
